@@ -12,45 +12,45 @@ const PORT = process.env.PORT || 3000;
 const songs = {
 
   happy: [
-    { link: "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" },
-    { link: "https://open.spotify.com/track/1WkMMavIMc4JZ8cfMmxHkI" },
-    { link: "https://open.spotify.com/track/5xTtaWoae3wi06K5WfVUUH" },
-    { link: "https://open.spotify.com/track/463CkQjx2Zk1yXoBuierM9" }
+    { link: "https://open.spotify.com/embed/track/60nZcImufyMA1MKQY3dcCH" },
+    { link: "https://open.spotify.com/embed/track/1WkMMavIMc4JZ8cfMmxHkI" },
+    { link: "https://open.spotify.com/embed/track/5xTtaWoae3wi06K5WfVUUH" },
+    { link: "https://open.spotify.com/embed/track/463CkQjx2Zk1yXoBuierM9" }
   ],
 
   sad: [
-    { link: "https://open.spotify.com/track/4kflIGfjdZJW4ot2ioixTB" },
-    { link: "https://open.spotify.com/track/2jyjDEH9eZtXhW0Iu5j2Ea" },
-    { link: "https://open.spotify.com/track/3p8R0uRkqZc7cA6T3sqwO5" },
-    { link: "https://open.spotify.com/track/7qEHsqek33rTcFNT9PFqLf" }
+    { link: "https://open.spotify.com/embed/track/4kflIGfjdZJW4ot2ioixTB" },
+    { link: "https://open.spotify.com/embed/track/2jyjDEH9eZtXhW0Iu5j2Ea" },
+    { link: "https://open.spotify.com/embed/track/3p8R0uRkqZc7cA6T3sqwO5" },
+    { link: "https://open.spotify.com/embed/track/7qEHsqek33rTcFNT9PFqLf" }
   ],
 
   romantic: [
-    { link: "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v" },
-    { link: "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a" },
-    { link: "https://open.spotify.com/track/3rmo8F54jFF8OgYsqTxm5d" },
-    { link: "https://open.spotify.com/track/6habFhsOp2NvshLv26DqMb" }
+    { link: "https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v" },
+    { link: "https://open.spotify.com/embed/track/3U4isOIWM3VvDubwSI3y7a" },
+    { link: "https://open.spotify.com/embed/track/3rmo8F54jFF8OgYsqTxm5d" },
+    { link: "https://open.spotify.com/embed/track/6habFhsOp2NvshLv26DqMb" }
   ],
 
   excited: [
-    { link: "https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS" },
-    { link: "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" },
-    { link: "https://open.spotify.com/track/463CkQjx2Zk1yXoBuierM9" },
-    { link: "https://open.spotify.com/track/6RUKPb4LETWmmr3iAEQktW" }
+    { link: "https://open.spotify.com/embed/track/32OlwWuMpZ6b0aN2RZOeMS" },
+    { link: "https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b" },
+    { link: "https://open.spotify.com/embed/track/463CkQjx2Zk1yXoBuierM9" },
+    { link: "https://open.spotify.com/embed/track/6RUKPb4LETWmmr3iAEQktW" }
   ],
 
   angry: [
-    { link: "https://open.spotify.com/track/0pqnGHJpmpxLKifKRmU6WP" },
-    { link: "https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h" },
-    { link: "https://open.spotify.com/track/5ghIJDpPoe3CfHMGu71E6T" },
-    { link: "https://open.spotify.com/track/1fLlRApgzxWweF1JTf8yM5" }
+    { link: "https://open.spotify.com/embed/track/0pqnGHJpmpxLKifKRmU6WP" },
+    { link: "https://open.spotify.com/embed/track/2nLtzopw4rPReszdYBJU6h" },
+    { link: "https://open.spotify.com/embed/track/5ghIJDpPoe3CfHMGu71E6T" },
+    { link: "https://open.spotify.com/embed/track/1fLlRApgzxWweF1JTf8yM5" }
   ],
 
   calm: [
-    { link: "https://open.spotify.com/track/1HNkqx9Ahdgi1Ixy2xkKkL" },
-    { link: "https://open.spotify.com/track/7iN1s7xHE4ifF5povM6A48" },
-    { link: "https://open.spotify.com/track/2takcwOaAZWiXQijPHIx7B" },
-    { link: "https://open.spotify.com/track/1dGr1c8CrMLDpV6mPbImSI" }
+    { link: "https://open.spotify.com/embed/track/1HNkqx9Ahdgi1Ixy2xkKkL" },
+    { link: "https://open.spotify.com/embed/track/7iN1s7xHE4ifF5povM6A48" },
+    { link: "https://open.spotify.com/embed/track/2takcwOaAZWiXQijPHIx7B" },
+    { link: "https://open.spotify.com/embed/track/1dGr1c8CrMLDpV6mPbImSI" }
   ]
 
 };
