@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 app.use(cors());
@@ -60,4 +62,15 @@ app.post("/getSongs", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// Default to login.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/login.html"));
 });
