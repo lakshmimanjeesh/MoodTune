@@ -33,13 +33,17 @@ node server.js
 ```
 
 ## Screenshots
-(Add at least 3 screenshots here)
+<img width="1817" height="868" alt="Screenshot 2026-02-21 202130" src="https://github.com/user-attachments/assets/5a1463a8-0141-4634-b979-156175f4d4a5" />
+<img width="1807" height="885" alt="Screenshot 2026-02-21 202147" src="https://github.com/user-attachments/assets/094cff82-57cb-4fa4-9196-d20af1619033" />
+<img width="1429" height="897" alt="Screenshot 2026-02-21 202213" src="https://github.com/user-attachments/assets/c2bd4eab-a04b-4c19-abd5-b13239c302e9" />
+
 
 ## Demo Video
-[Watch the demo](#)
+https://drive.google.com/file/d/1K2cvViq0cYxrZFSjUsdauDlX9s41V8UK/view?usp=drive_link
 
 ## Architecture Diagram
-(Add architecture diagram here)
+![WhatsApp Image 2026-02-21 at 20 19 20](https://github.com/user-attachments/assets/c0a68bca-694d-4ad2-a75c-08756ebcc5ab)
+
 
 ## API Documentation
 (Add API documentation here if applicable)
