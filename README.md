@@ -45,9 +45,8 @@ node server.js
 (Add API documentation here if applicable)
 
 ## Team Members
-- Member 1
-- Member 2
-- Member 3
+- Maria Simon
+- Lakshmi Manjeesh
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
