@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weekly Mood Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <button id="themeToggle">🌙</button>
+
+  <div class="container">
+    <h1>📊 Weekly Mood Dashboard</h1>
+
+    <canvas id="moodChart"></canvas>
+
+    <div id="summary"></div>
+  </div>
+
+  <script src="dashboard.js"></script>
+
+  <!-- Dark mode script -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const toggleBtn = document.getElementById("themeToggle");
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", function () {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.removeItem("theme");
+        toggleBtn.textContent = "🌙";
+      }
+
+    });
+
+  });
+  </script>
+
+</body>
+</html>

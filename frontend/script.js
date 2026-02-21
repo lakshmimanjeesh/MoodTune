@@ -1,51 +1,64 @@
-let answers = [0, 0, 0];
+let moodPoints = {
+  happy: 0,
+  sad: 0,
+  romantic: 0,
+  excited: 0,
+  angry: 0,
+  calm: 0
+};
 
-// QUIZ PAGE BUTTONS
-if (document.querySelectorAll(".options button").length > 0) {
+// Handle button clicks
+document.querySelectorAll(".options button").forEach(btn => {
+  btn.addEventListener("click", function () {
 
-  document.querySelectorAll(".options button").forEach(btn => {
-    btn.addEventListener("click", function () {
+    const mood = this.dataset.mood;
+    const parent = this.parentElement;
 
-      const index = this.dataset.index;
-      const value = this.dataset.value;
+    // Remove active from siblings
+    parent.querySelectorAll("button")
+      .forEach(b => b.classList.remove("active"));
 
-      answers[index] = Number(value);
+    this.classList.add("active");
 
-      // remove active from same group
-      document.querySelectorAll(`button[data-index='${index}']`)
-        .forEach(b => b.classList.remove("active"));
-
-      this.classList.add("active");
-    });
+    // Store mood selection in parent
+    parent.dataset.selectedMood = mood;
   });
+});
 
-}
-
-// SUBMIT QUIZ
+// Submit
 async function submitQuiz() {
 
-  if (answers.includes(0)) {
-    alert("Please answer all questions!");
-    return;
+  // Reset points
+  for (let key in moodPoints) {
+    moodPoints[key] = 0;
   }
 
-  try {
-    const response = await fetch("http://localhost:3000/analyze", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers })
-    });
+  const questions = document.querySelectorAll(".options");
 
-    const data = await response.json();
+  for (let q of questions) {
+    if (!q.dataset.selectedMood) {
+      alert("Please answer all questions!");
+      return;
+    }
 
-    localStorage.setItem("playlist", JSON.stringify(data));
-
-    window.location.href = "result.html";
-
-  } catch (error) {
-    alert("Server not running!");
-    console.error(error);
+    moodPoints[q.dataset.selectedMood]++;
   }
+
+  // Find highest mood
+  let detectedMood = Object.keys(moodPoints).reduce((a, b) =>
+    moodPoints[a] > moodPoints[b] ? a : b
+  );
+
+  const response = await fetch("http://localhost:3000/getSongs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mood: detectedMood })
+  });
+
+  const data = await response.json();
+
+  localStorage.setItem("playlist", JSON.stringify(data));
+  window.location.href = "result.html";
 }
 
 // RESULT PAGE
@@ -54,35 +67,83 @@ if (window.location.pathname.includes("result.html")) {
   const container = document.getElementById("playlist");
   const data = JSON.parse(localStorage.getItem("playlist"));
 
-  if (!data) {
-    container.innerHTML = "<p>No playlist found. Take quiz again.</p>";
+  console.log("Songs received:", data?.songs?.length);
+
+  if (!data || !data.songs) {
+    container.innerHTML = "<p>No songs found.</p>";
   } else {
 
     container.innerHTML = `
       <h2 class="detected-mood">
-        Your Mood: ${data.mood.toUpperCase()} 🎵
+        Your Mood: ${data.mood.toUpperCase()} 🎧
       </h2>
     `;
 
-    data.songs.forEach(song => {
+    // IMPORTANT: No slice, no limit
+    for (let i = 0; i < data.songs.length; i++) {
 
-      const trackId = song.link.split("/track/")[1].split("?")[0];
+      const song = data.songs[i];
+
+      const trackId = song.link.split("/track/")[1];
 
       container.innerHTML += `
         <div class="song-card">
           <iframe 
-            src="https://open.spotify.com/embed/track/${trackId}" 
+            src="https://open.spotify.com/embed/track/${trackId}"
             width="100%" 
-            height="80" 
-            frameborder="0" 
+            height="80"
+            frameborder="0"
             allow="encrypted-media">
           </iframe>
         </div>
       `;
-    });
+    }
   }
 }
+let history = JSON.parse(localStorage.getItem("history")) || [];
 
+history.push({
+  mood: detectedMood,
+  date: new Date().toISOString()
+});
+
+localStorage.setItem("history", JSON.stringify(history));
 function goBack() {
   window.location.href = "index.html";
+}
+document.body.classList.add("light");
+
+const toggleBtn = document.getElementById("themeToggle");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  if (toggleBtn) toggleBtn.textContent = "☀️";
+}
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "☀️";
+    } else {
+      localStorage.removeItem("theme");
+      toggleBtn.textContent = "🌙";
+      }
+  });
+  function saveMood(mood) {
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  history.push({
+    mood: mood,
+    date: new Date().toISOString()
+  });
+
+  localStorage.setItem("history", JSON.stringify(history));
+
+  console.log("Mood saved:", mood);
+}
 }
