@@ -45,9 +45,6 @@ https://drive.google.com/file/d/1K2cvViq0cYxrZFSjUsdauDlX9s41V8UK/view?usp=drive
 ![WhatsApp Image 2026-02-21 at 20 19 20](https://github.com/user-attachments/assets/c0a68bca-694d-4ad2-a75c-08756ebcc5ab)
 
 
-## API Documentation
-(Add API documentation here if applicable)
-
 ## Team Members
 - Maria Simon
 - Lakshmi Manjeesh
