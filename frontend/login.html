@@ -62,33 +62,45 @@ button{
 </div>
 
 <script>
-function login(){
-
-    const name  = document.getElementById("name").value.trim();
+function login() {
+    const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
 
-    if(!name || !email || !phone){
+    if (!name || !email || !phone) {
         alert("Please fill all fields");
         return;
     }
 
-    // keep this exactly as before so your app continues to work
+    // Store current user
     localStorage.setItem("currentUser", name);
 
-    // store profile info separately
+    // Store profile info
     let profiles = JSON.parse(localStorage.getItem("userProfiles") || "{}");
-
-    profiles[name] = {
-        name,
-        email,
-        phone
-    };
-
+    profiles[name] = { name, email, phone };
     localStorage.setItem("userProfiles", JSON.stringify(profiles));
 
+    // Redirect to index.html
     window.location.href = "index.html";
 }
+
+// Theme toggle functionality
+const toggleBtn = document.getElementById("themeToggle");
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+}
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.removeItem("theme");
+        toggleBtn.textContent = "🌙";
+    }
+});
 </script>
 
 </body>
