@@ -154,7 +154,7 @@
     "websocket-extensions": "^0.1.4"
   },
   "scripts": {
-  "start": "live-server --port=8080 --no-browser",
+  "start": "live-server --port=8080 --no-browser ./",
   "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

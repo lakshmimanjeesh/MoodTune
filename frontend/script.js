@@ -49,7 +49,9 @@ async function submitQuiz() {
     moodPoints[a] > moodPoints[b] ? a : b
   );
 
-  const response = await fetch("http://localhost:3000/getSongs", {
+  const backendUrl = "https://moodtune-backend-vbji.onrender.com"; // Replace with your Render backend URL
+
+  const response = await fetch(`${backendUrl}/getSongs`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ mood: detectedMood })
