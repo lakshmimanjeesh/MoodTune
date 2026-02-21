@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoodTune</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>MoodTune 🎧</h1>
+<p>Answer honestly:</p>
+
+<p>1. How was your day?</p>
+<button onclick="add(1)">Bad</button>
+<button onclick="add(2)">Okay</button>
+<button onclick="add(3)">Great</button>
+
+<p>2. Energy level?</p>
+<button onclick="add(1)">Low</button>
+<button onclick="add(2)">Normal</button>
+<button onclick="add(3)">High</button>
+
+<p>3. Emotional state?</p>
+<button onclick="add(1)">Drained</button>
+<button onclick="add(2)">Balanced</button>
+<button onclick="add(3)">Intense</button>
+
+<br><br>
+<button class="submit" onclick="submitQuiz()">Get My Playlist</button>
+
+<div id="result"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
