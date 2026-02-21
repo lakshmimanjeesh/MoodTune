@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoodTune</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <button class="dashboard-btn" onclick="goToDashboard()">📊 Dashboard</button>
+  <button id="themeToggle" class="theme-btn">🌙</button>
+  <h1>MoodTune </h1>
+
+  <!-- Q1 -->
+  <div class="question">
+    <p>1. How do you feel right now?</p>
+    <div class="options">
+      <button data-mood="happy">Happy</button>
+      <button data-mood="sad">Sad</button>
+      <button data-mood="romantic">Romantic</button>
+      <button data-mood="excited">Excited</button>
+      <button data-mood="angry">Angry</button>
+      <button data-mood="calm">Calm</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question">
+    <p>2. What activity are you doing?</p>
+    <div class="options">
+      <button data-mood="calm">Studying / Reading</button>
+      <button data-mood="excited">Working out</button>
+      <button data-mood="romantic">On a date</button>
+      <button data-mood="happy">Hanging with friends</button>
+      <button data-mood="sad">Thinking alone</button>
+      <button data-mood="angry">Releasing stress</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question">
+    <p>3. What kind of energy do you want?</p>
+    <div class="options">
+      <button data-mood="excited">High energy</button>
+      <button data-mood="calm">Peaceful</button>
+      <button data-mood="happy">Positive</button>
+      <button data-mood="romantic">Soft & Loving</button>
+      <button data-mood="sad">Emotional</button>
+      <button data-mood="angry">Intense</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question">
+    <p>4. How do you feel about the people around you today?</p>
+    <div class="options">
+      <button data-mood="angry">Annoyed</button>
+      <button data-mood="sad">Distant</button>
+      <button data-mood="calm">Neutral</button>
+      <button data-mood="happy">Warm</button>
+      <button data-mood="romantic">Connected</button>
+      <button data-mood="excited">Energetic</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question">
+    <p>5. What matches your vibe?</p>
+    <div class="options">
+      <button data-mood="happy">Smiling & Dancing</button>
+      <button data-mood="sad">Rainy window</button>
+      <button data-mood="romantic">Candle light</button>
+      <button data-mood="excited">Neon lights</button>
+      <button data-mood="angry">Thunderstorm</button>
+      <button data-mood="calm">Ocean waves</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question">
+    <p>6. What best matches your mind right now?</p>
+    <div class="options">
+      <button data-mood="happy">Joyful</button>
+      <button data-mood="sad">Melancholy</button>
+      <button data-mood="romantic">Love</button>
+      <button data-mood="excited">Thrill</button>
+      <button data-mood="angry">Fire</button>
+      <button data-mood="calm">Peace</button>
+    </div>
+  </div>
+
+  <button class="submit" onclick="submitQuiz()">Get Playlist 🎵</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  function goToDashboard(){
+    window.location.href = "dashboard.html";
+  }
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const toggleBtn = document.getElementById("themeToggle");
+
+  // Apply saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    if (toggleBtn) toggleBtn.textContent = "☀️";
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function () {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.removeItem("theme");
+        toggleBtn.textContent = "🌙";
+      }
+
+      console.log("Dark mode toggled");
+    });
+  }
+
+});
+</script>
+</body>
+</html>
