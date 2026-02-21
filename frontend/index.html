@@ -4,29 +4,40 @@
   <title>MoodTune</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="quiz-page">
 
-<h1>MoodTune 🎧</h1>
+<div class="container">
+  <h1>MoodTune 🎧</h1>
 
-<p>1. How was your day?</p>
-<button onclick="add(1,0)">Bad</button>
-<button onclick="add(2,0)">Okay</button>
-<button onclick="add(3,0)">Great</button>
+  <div class="question">
+    <p>1. How was your day?</p>
+    <div class="options">
+      <button data-index="0" data-value="1">Bad</button>
+      <button data-index="0" data-value="2">Okay</button>
+      <button data-index="0" data-value="3">Great</button>
+    </div>
+  </div>
 
-<p>2. Energy level?</p>
-<button onclick="add(1,1)">Low</button>
-<button onclick="add(2,1)">Normal</button>
-<button onclick="add(3,1)">High</button>
+  <div class="question">
+    <p>2. Energy level?</p>
+    <div class="options">
+      <button data-index="1" data-value="1">Low</button>
+      <button data-index="1" data-value="2">Normal</button>
+      <button data-index="1" data-value="3">High</button>
+    </div>
+  </div>
 
-<p>3. Emotional state?</p>
-<button onclick="add(1,2)">Drained</button>
-<button onclick="add(2,2)">Balanced</button>
-<button onclick="add(3,2)">Intense</button>
+  <div class="question">
+    <p>3. Emotional state?</p>
+    <div class="options">
+      <button data-index="2" data-value="1">Drained</button>
+      <button data-index="2" data-value="2">Balanced</button>
+      <button data-index="2" data-value="3">Intense</button>
+    </div>
+  </div>
 
-<br><br>
-<button class="submit" onclick="submitQuiz()">Get My Playlist</button>
-
-<div id="result"></div>
+  <button class="submit" onclick="submitQuiz()">Get My Playlist</button>
+</div>
 
 <script src="script.js"></script>
 </body>
